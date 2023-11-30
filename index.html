@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCI Task</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link rel="icon" href="./assets/images/logo.png" type="image/x-icon"/>
+    <script src="./script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <span class="material-icons-outlined menu-icon">menu</span>
+        <span class="material-icons-outlined profile-icon">account_circle</span>
+    </header>
+    <div class="main-container">
+        <aside>
+            <div class="menu-item">welcome</div>
+            <div class="menu-item">Menu 1</div>
+            <div class="menu-item">Menu 2</div>
+        </aside>
+        <main>
+            <table id="data-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Avatar</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+              <div class="table-adjustment">
+                <div>
+                    <input class="per-page-input" value="6"/>
+                    Records Per Page
+                </div>
+                <div class="pagination-list">
+                  <div id="previousPage" class="disable">
+                    <span class="material-icons-outlined pervious">navigate_next</span>
+                  </div>
+                  <div>
+                    <div id="pageNumberContainer" style="display: flex;">
+                    </div>
+                  </div>
+                  <div id="nextPage" class="disable">
+                    <span class="material-icons-outlined next">chevron_left</span>
+                  </div>
+                </div>
+                <button id="openfilterModalBtn" type="button">Filter</button>
+              </div>
+        </main>
+    </div>
+    <div id="filterModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <table id="filter-table">
+          <thead>
+            <tr>
+              <th>Header</th>
+              <th>condition</th>
+              <th>Value</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr class="filterRow">
+                <td>
+                  <select class="filter-dropdown filter-header-dropdown">
+                    <option value="id">ID</option>
+                    <option value="first_name">First Name</option>
+                    <option value="last_name">Last Name</option>
+                    <option value="email">Email</option>
+                  </select>
+                </td>
+                <td>
+                  <select class="filter-dropdown filter-condition-dropdown">
+                    <option value="=">=</option>
+                    <option value="!=">&ne;</option>
+                    <option value="<"><</option>
+                    <option value=">">></option>
+                    <option value=">=">>=</option>
+                    <option value="<="><=</option>
+                  </select>
+                </td>
+                <td><input class="filter-input"/></td>
+              </tr>
+          </tbody>
+        </table>
+        <div>
+          <button id="new-rule">New Rule</button>
+        </div>
+        <div style="text-align: center;">
+          <button id="search">search</button>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
