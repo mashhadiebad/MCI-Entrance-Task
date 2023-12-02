@@ -312,11 +312,13 @@ menuIcon.onclick = function() {
 var inputElement = document.querySelector(".per-page-input");
 inputElement.addEventListener("input", function() {
   perPage = inputElement.value;
-  page = 1
-  clearTable()
-  paginateAllData(isFilterActive ? filteredData : allData, perPage)
-  createTable(paginatedData[page - 1])
-  setTimeout(() => {renderPagination()},0)
+  if(perPage){
+    page = 1
+    clearTable()
+    paginateAllData(isFilterActive ? filteredData : allData, perPage)
+    createTable(paginatedData[page - 1])
+    setTimeout(() => {renderPagination()},0)
+  }
 });
 
 var modal = document.getElementById("filterModal");
