@@ -124,7 +124,7 @@ function setPageNumber(selectedPage) {
 
 function setPreviousPage(selectedPage) {
   if (selectedPage > 1) {
-    page--;
+    page = Number(page - 1);
     clearTable()
     createTable(paginatedData[page - 1])
     setTimeout(() => {renderPagination()},0)
@@ -133,20 +133,23 @@ function setPreviousPage(selectedPage) {
 
 function setNextPage(selectedPage) {
   if (selectedPage < totalPages) {
-    page++;
+    page = Number(page + 1);
     clearTable()
     createTable(paginatedData[page - 1])
     setTimeout(() => {renderPagination()},0)
   }
 }
 
-function renderPagination() {
-  const previousPage = document.getElementById("previousPage");
-  const nextPage = document.getElementById("nextPage");
-  const pageNumberContainer = document.getElementById("pageNumberContainer");
+const previousPage = document.getElementById("previousPage");
+previousPage.addEventListener("click", () => setPreviousPage(page));
 
-  previousPage.addEventListener("click", () => setPreviousPage(page));
-  nextPage.addEventListener("click", () => setNextPage(page));
+const nextPage = document.getElementById("nextPage");
+nextPage.addEventListener("click", () => setNextPage(page));
+
+
+function renderPagination() {
+
+  const pageNumberContainer = document.getElementById("pageNumberContainer");
 
   pageNumberContainer.innerHTML = "";
 
